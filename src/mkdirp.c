@@ -32,12 +32,7 @@ int mkdirp(char *path, mode_t mode) {
   }
 
   // make this one if parent has been made
-  if (0 == mkdir(pathname, mode)) {
-    return 0;
-  }
-
-  // already exists? :)
-  if (EEXIST == errno) {
+  if (0 == mkdir(pathname, mode) || EEXIST == errno) {
     return 0;
   }
 
