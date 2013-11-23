@@ -18,7 +18,9 @@
 
 int mkdirp(char *path, mode_t mode) {
   char *pathname = path_normalize(path);
+  if (NULL == pathname) return -1;
   char *parent = str_copy(pathname);
+  if (NULL == parent) return -1;
 
   char *p = parent + strlen(parent);
   while ('/' != *p && p != parent) {
