@@ -1,6 +1,6 @@
 {
   "name": "mkdirp",
-  "version": "0.0.1",
+  "version": "deps",
   "repo": "stephenmathieson/mkdirp.c",
   "description": "mkdir -p",
   "keywords": [
@@ -10,10 +10,10 @@
   "license": "MIT",
   "src": [
     "src/mkdirp.c",
-    "src/mkdirp.h",
-    "src/path-normalize.c",
-    "src/path-normalize.h",
-    "src/str-copy.c",
-    "src/str-copy.h"
-  ]
+    "src/mkdirp.h"
+  ],
+  "dependencies": {
+    "stephenmathieson/path-normalize.c": "master",
+    "stephenmathieson/str-copy.c": "master"
+  }
 }
