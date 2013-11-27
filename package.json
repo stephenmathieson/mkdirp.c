@@ -1,6 +1,6 @@
 {
   "name": "mkdirp",
-  "version": "deps",
+  "version": "temp-deps",
   "repo": "stephenmathieson/mkdirp.c",
   "description": "mkdir -p",
   "keywords": [
