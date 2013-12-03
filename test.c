@@ -8,7 +8,7 @@ int exists(char *path) {
   return stat(path, &b);
 }
 
-void pre_test() {
+void setup() {
   if (0 == exists("./tmp/foo/bar/baz")) rmdir("./tmp/foo/bar/baz");
   if (0 == exists("./tmp/foo/bar/")) rmdir("./tmp/foo/bar/");
   if (0 == exists("./tmp/foo/")) rmdir("./tmp/foo/");
@@ -16,7 +16,7 @@ void pre_test() {
 }
 
 int main(int argc, char **argv) {
-  pre_test();
+  setup();
   assert(0 == mkdirp("./tmp/foo/bar/baz", 0777));
   assert(0 == exists("./tmp"));
   assert(0 == exists("./tmp/foo"));

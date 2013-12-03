@@ -14,6 +14,6 @@
  * Normalize the given `path`
  */
 
-char *path_normalize(char *path);
+char *path_normalize(const char *path);
 
 #endif

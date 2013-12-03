@@ -8,21 +8,19 @@
 
 #include <string.h>
 #include "path-normalize.h"
-#include "str-copy.h"
 
 /*
  * Normalize the given `path`
  */
 
-char *path_normalize(char *path) {
+char *path_normalize(const char *path) {
   if (!path) return NULL;
 
-  char *copy = str_copy(path);
-  if (NULL == copy) return NULL;
-
+  char *copy = strdup(path);
   size_t len = strlen(copy);
   char *ptr = copy;
-  for (int i = 0; i < len; i++) {
+
+  for (int i = 0; copy[i]; i++) {
     *ptr++ = path[i];
     if ('/' == path[i]) {
       i++;
@@ -30,6 +28,7 @@ char *path_normalize(char *path) {
       i--;
     }
   }
+
   *ptr = '\0';
 
   return copy;
