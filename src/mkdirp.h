@@ -1,4 +1,3 @@
-
 //
 // mkdirp.h
 //
@@ -9,6 +8,7 @@
 #ifndef MKDIRP
 #define MKDIRP
 
+#include <sys/types.h>
 #include <sys/stat.h>
 
 /*
