@@ -1,7 +1,7 @@
 
 #include <assert.h>
 #include <unistd.h>
-#include "src/mkdirp.h"
+#include "mkdirp.h"
 
 int exists(char *path) {
   struct stat b;

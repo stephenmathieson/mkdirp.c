@@ -15,7 +15,6 @@
     "deps/path-normalize.h"
   ],
   "dependencies": {
-    "stephenmathieson/path-normalize.c": "master",
-    "stephenmathieson/str-copy.c": "master"
+    "stephenmathieson/path-normalize.c": "master"
   }
 }
