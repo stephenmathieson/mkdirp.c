@@ -17,7 +17,6 @@ char *path_normalize(const char *path) {
   if (!path) return NULL;
 
   char *copy = strdup(path);
-  size_t len = strlen(copy);
   char *ptr = copy;
 
   for (int i = 0; copy[i]; i++) {
