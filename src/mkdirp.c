@@ -15,7 +15,7 @@
  * Recursively `mkdir(path, mode)`
  */
 
-int mkdirp(char *path, mode_t mode) {
+int mkdirp(const char *path, mode_t mode) {
   char *pathname = path_normalize(path);
   if (NULL == pathname) return -1;
   char *parent = strdup(pathname);
