@@ -7,7 +7,9 @@
 //
 
 #include <errno.h>
+#include <stdlib.h>
 #include <string.h>
+#include "str-copy.h"
 #include "path-normalize.h"
 #include "mkdirp.h"
 
@@ -16,9 +18,17 @@
  */
 
 int mkdirp(const char *path, mode_t mode) {
+  if (NULL == path) return -1;
+
   char *pathname = path_normalize(path);
   if (NULL == pathname) return -1;
-  char *parent = strdup(pathname);
+
+  char *parent = str_copy(pathname);
+  if (NULL == parent) {
+    free(pathname);
+    return -1;
+  }
+
   char *p = parent + strlen(parent);
   while ('/' != *p && p != parent) {
     p--;
