@@ -9,8 +9,8 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
-#include "str-copy.h"
-#include "path-normalize.h"
+#include "str-copy/str-copy.h"
+#include "path-normalize/path-normalize.h"
 #include "mkdirp.h"
 
 /*
