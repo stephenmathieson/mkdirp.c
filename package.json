@@ -10,9 +10,7 @@
   "license": "MIT",
   "src": [
     "src/mkdirp.c",
-    "src/mkdirp.h",
-    "deps/path-normalize.c",
-    "deps/path-normalize.h"
+    "src/mkdirp.h"
   ],
   "dependencies": {
     "stephenmathieson/path-normalize.c": "master"
