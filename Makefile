@@ -12,4 +12,4 @@ test: test.c $(SRC)
 clean:
 	rm -f test
 
-.PHONY: test
+.PHONY: test clean
