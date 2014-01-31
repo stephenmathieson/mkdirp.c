@@ -13,6 +13,7 @@
     "src/mkdirp.h"
   ],
   "dependencies": {
-    "stephenmathieson/path-normalize.c": "master"
+    "stephenmathieson/path-normalize.c": "master",
+    "stephenmathieson/str-copy.c": "*"
   }
 }
