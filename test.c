@@ -15,7 +15,7 @@ void setup() {
   if (0 == exists("./tmp/")) rmdir("./tmp/");
 }
 
-int main(int argc, char **argv) {
+int main(void) {
   setup();
   assert(0 == mkdirp("./tmp/foo/bar/baz", 0777));
   assert(0 == exists("./tmp"));
