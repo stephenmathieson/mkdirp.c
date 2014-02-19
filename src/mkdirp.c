@@ -20,16 +20,16 @@
 
 int
 mkdirp(const char *path, mode_t mode) {
+  char *pathname = NULL;
+  char *parent = NULL;
+
   if (NULL == path) return -1;
 
-  char *pathname = path_normalize(path);
-  if (NULL == pathname) return -1;
+  pathname = path_normalize(path);
+  if (NULL == pathname) goto fail;
 
-  char *parent = str_copy(pathname);
-  if (NULL == parent) {
-    free(pathname);
-    return -1;
-  }
+  parent = str_copy(pathname);
+  if (NULL == parent) goto fail;
 
   char *p = parent + strlen(parent);
   while ('/' != *p && p != parent) {
@@ -38,9 +38,8 @@ mkdirp(const char *path, mode_t mode) {
   *p = '\0';
 
   // make parent dir
-  if (p != parent && 0 != mkdirp(parent, mode)) {
-    return -1;
-  }
+  if (p != parent && 0 != mkdirp(parent, mode)) goto fail;
+  free(parent);
 
   // make this one if parent has been made
   #ifdef _WIN32
@@ -50,7 +49,14 @@ mkdirp(const char *path, mode_t mode) {
     int rc = mkdir(pathname, mode);
   #endif
 
+  free(pathname);
+
   return 0 == rc || EEXIST == errno
     ? 0
     : -1;
+
+fail:
+  if (pathname) free(pathname);
+  if (parent) free(parent);
+  return -1;
 }
