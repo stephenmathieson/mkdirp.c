@@ -6,6 +6,7 @@
 // MIT licensed
 //
 
+#include <unistd.h>
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,7 +18,8 @@
  * Recursively `mkdir(path, mode)`
  */
 
-int mkdirp(const char *path, mode_t mode) {
+int
+mkdirp(const char *path, mode_t mode) {
   if (NULL == path) return -1;
 
   char *pathname = path_normalize(path);
@@ -41,9 +43,14 @@ int mkdirp(const char *path, mode_t mode) {
   }
 
   // make this one if parent has been made
-  if (0 == mkdir(pathname, mode) || EEXIST == errno) {
-    return 0;
-  }
+  #ifdef _WIN32
+    // http://msdn.microsoft.com/en-us/library/2fkk4dzw.aspx
+    int rc = mkdir(pathname);
+  #else
+    int rc = mkdir(pathname, mode);
+  #endif
 
-  return -1;
+  return 0 == rc || EEXIST == errno
+    ? 0
+    : -1;
 }
