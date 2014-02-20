@@ -3,6 +3,8 @@
 
   mkdir -p
 
+[![Build Status](https://travis-ci.org/stephenmathieson/mkdirp.c.png?branch=master)](https://travis-ci.org/stephenmathieson/mkdirp.c)
+
 ## Installation
 
   Install with [clib(1)](https://github.com/clibs/clib):
