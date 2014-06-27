@@ -1,4 +1,12 @@
 
+0.1.3 / 2014-06-27
+==================
+
+ * Handle backslash instead of slash on windows
+ * Add travis badge
+ * Fix travis build
+ * Add travis
+
 0.1.2 / 2014-02-19 
 ==================
 
