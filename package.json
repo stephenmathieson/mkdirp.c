@@ -14,6 +14,6 @@
   ],
   "dependencies": {
     "stephenmathieson/path-normalize.c": "*",
-    "stephenmathieson/str-copy.c": "*"
+    "strdup": "0.0.0"
   }
 }
