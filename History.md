@@ -1,4 +1,10 @@
 
+0.1.5 / 2014-10-24
+==================
+
+  * src: Remove unnecessary null checks
+  * Include the dependencies in the project.
+
 0.1.4 / 2014-06-29
 ==================
 
